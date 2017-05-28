@@ -1,0 +1,46 @@
+{% extends 'index.html' %}
+
+{% block body %}
+    <section class="delivery">
+        <div class="container">
+            <h2>Доставка</h2>
+            <img class="img-responsive" src="{{ url_for('static', filename='images/deliver.png') }}" alt="Deliver"/>
+            <ul class="deliver-information">
+                <li>
+                    <h3>Умови доставки</h3>
+                    <ul class="deliver-list">
+                        <li>
+                            <p><i class="fa fa-check-square-o" aria-hidden="true"></i>Приготовлені страви транспортують
+                                у герметично закритих одноразових боксах, що дозволяє максимально зберегти
+                                якість і температуру вантажу страви.</p>
+                        </li>
+                        <li>
+                            <p><i class="fa fa-check-square-o" aria-hidden="true"></i>Доставка зробленого Вами
+                                замовлення здійснюється в будь-яку точку міста. Час доставки від 50-90 хв. У
+                                вартість замовлення не включена доставка. Її вартість ви можете уточнити у операторів.
+                            </p>
+                        </li>
+                        <li>
+                            <p><i class="fa fa-check-square-o" aria-hidden="true"></i>Замовлення приймаємо ЦІЛОДОБОВО.
+                            </p>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <h3>Оплата</h3>
+                    <p>Можливі способи оплати:</p>
+                    <ul class="payment-list">
+                        <li>
+                            <p><i class="fa fa-check-square-o" aria-hidden="true"></i>готівкою (розрахунок проводиться з
+                                кур'єром в національній валюті України в гривнях);</p>
+                        </li>
+                        <li>
+                            <p><i class="fa fa-check-square-o" aria-hidden="true"></i>кредитною карткою VISA MasterCARD,
+                                заповнивши online-форму платіжної системи;</p>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,168 @@
+{% extends 'index.html' %}
+
+{% block body %}
+    <section class="institution-list">
+        <div class="container-fluid">
+            <div class="col-sm-3 col-md-2">
+                <ul class="nav nav-sidebar" role="tablist">
+                    {% for title in titles %}
+                        <li role="presentation">
+                            <a href="{{ title.id }}" aria-controls="list-four" role="tab" data-toggle="tab">
+                                <div class="title-food">
+                                    <h3>{{ title.City }}</h3>
+                                </div>
+                            </a>
+                        </li>
+                    {% else %}
+                        <li>
+                            <p>None</p>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="col-sm-12 main">
+                {% for price in prices %}
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active" id="{{ price.titl_id }}">
+                            <ul class="price-burger">
+                                <li class="col-sm-12">
+                                    <ul class="list-product">
+                                        <li class="col-sm-4">
+                                            <h3 class="product-title">{{ price.FirstName }}</h3>
+                                        </li>
+                                        <li class="col-sm-4">
+                                            <h3 class="product-title">{{ price.LastName }}</h3>
+                                        </li>
+                                        <li class="col-sm-3">
+                                            <div class="form-group">
+                                                <label></label>
+                                                <select class="form-control">
+                                                    <option>0</option>
+                                                    <option>1</option>
+                                                </select>
+                                            </div>
+                                        </li>
+                                        <li class="col-sm-1">
+                                            <button type="button" class="btn btn-primary"><i
+                                                    class="fa fa-shopping-basket"
+                                                    aria-hidden="true"></i>
+                                            </button>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                {% else %}
+
+                    <em>Unbelievable. No entries here so far</em>
+
+                {% endfor %}
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="col-sm-12">
+                <ul class="nav" role="tablist">
+                    <li role="presentation" class="active">
+                        <a href="#list-one" class="one" aria-controls="list-one" role="tab" data-toggle="tab">
+                            <div class="title-food">
+                                <h3>Бургери</h3>
+                            </div>
+                        </a>
+                    </li>
+                    <li role="presentation">
+                        <a href="#list-three" class="three" aria-controls="list-three" role="tab" data-toggle="tab">
+                            <div class="title-food">
+                                <h3>Сік</h3>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-sm-12 main">
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="list-one">
+                        <div id="cbp-vm" class="cbp-vm-switcher cbp-vm-view-grid">
+                            <div class="cbp-vm-options">
+                                <a href="#" class="cbp-vm-icon cbp-vm-grid cbp-vm-selected"
+                                   data-view="cbp-vm-view-grid">Grid View</a>
+                                <a href="#" class="cbp-vm-icon cbp-vm-list" data-view="cbp-vm-view-list">List View</a>
+                            </div>
+                            <ul>
+                                <li>
+                                    <a class="cbp-vm-image" href="#"><img src="" alt="1"/></a>
+                                    <h3 class="cbp-vm-title">Silver beet</h3>
+                                    <div class="cbp-vm-price">$19.90</div>
+                                    <div class="cbp-vm-details">
+                                        Silver beet shallot wakame tomatillo salsify mung bean beetroot groundnut.
+                                    </div>
+                                    <button type="button" class="btn btn-primary"><i class="fa fa-shopping-basket"
+                                                                                     aria-hidden="true"></i></button>
+                                </li>
+                                <li>
+                                    <a class="cbp-vm-image" href="#"><img src="" alt="2"/></a>
+                                    <h3 class="cbp-vm-title">Wattle seed</h3>
+                                    <div class="cbp-vm-price">$22.90</div>
+                                    <div class="cbp-vm-details">
+                                        Wattle seed bunya nuts spring onion okra garlic bitterleaf zucchini.
+                                    </div>
+                                    <button type="button" class="btn btn-primary"><i class="fa fa-shopping-basket"
+                                                                                     aria-hidden="true"></i></button>
+                                </li>
+                                <li>
+                                    <a class="cbp-vm-image" href="#"><img src="" alt="3"/></a>
+                                    <h3 class="cbp-vm-title">Kohlrabi bok</h3>
+                                    <div class="cbp-vm-price">$5.90</div>
+                                    <div class="cbp-vm-details">
+                                        Kohlrabi bok choy broccoli rabe welsh onion spring onion tatsoi ricebean kombu
+                                        chard.
+                                    </div>
+                                    <button type="button" class="btn btn-primary"><i class="fa fa-shopping-basket"
+                                                                                     aria-hidden="true"></i></button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="list-three">
+                        <div id="cbp-vm" class="cbp-vm-switcher cbp-vm-view-grid">
+                            <div class="cbp-vm-options">
+                                <a href="#" class="cbp-vm-icon cbp-vm-grid cbp-vm-selected"
+                                   data-view="cbp-vm-view-grid">Grid View</a>
+                                <a href="#" class="cbp-vm-icon cbp-vm-list" data-view="cbp-vm-view-list">List View</a>
+                            </div>
+                            <ul>
+                                <li>
+                                    <a class="cbp-vm-image" href="#"><img src="" alt="1"/></a>
+                                    <h3 class="cbp-vm-title">Silver beet</h3>
+                                    <div class="cbp-vm-price">$19.90</div>
+                                    <div class="cbp-vm-details">
+                                        Silver beet shallot wakame tomatillo salsify mung bean beetroot groundnut.
+                                    </div>
+                                    <button type="button" class="btn btn-primary"><i class="fa fa-shopping-basket"
+                                                                                     aria-hidden="true"></i></button>
+                                </li>
+                                <li>
+                                    <a class="cbp-vm-image" href="#"><img src="" alt="2"/></a>
+                                    <h3 class="cbp-vm-title">Wattle seed</h3>
+                                    <div class="cbp-vm-price">$22.90</div>
+                                    <div class="cbp-vm-details">
+                                        Wattle seed bunya nuts spring onion okra garlic bitterleaf zucchini.
+                                    </div>
+                                    <button type="button" class="btn btn-primary"><i class="fa fa-shopping-basket"
+                                                                                     aria-hidden="true"></i></button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        $(document).ready(function () {
+            $('.tab-pane').each(function () {
+                if (this.href == location.href) $(this).parent().addClass('active');
+            });
+        });
+    </script>
+{% endblock %}

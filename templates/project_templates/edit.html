@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+{% from "project_templates/_formhelpers.html" import render_field %}
+	<form method="POST" action="/menu/{{title.id}}">
+		<dl>
+            {{ form1.csrf_token }}
+            {{ render_field(form1.name) }}
+        </dl>
+        <input type="submit" value="Створити">
+	</form>
+</body>
+</html>

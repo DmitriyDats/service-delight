@@ -1,0 +1,36 @@
+{% extends 'index.html' %}
+
+{% block body %}
+    <form method="POST" action="" class="col-sm-4" style="margin: 0 35%;">
+    <ul>
+    {% for order in orders %}
+        <li>
+            <label></label>
+            <input class="form-control" type="text" placeholder="Readonly input here…" readonly>
+        </li>
+        <li>
+            <label></label>
+            <input class="form-control" type="text" placeholder="Readonly input here…" readonly>
+        </li>
+        <li>
+            <label></label>
+            <input class="form-control" type="text" placeholder="Readonly input here…" readonly>
+        </li>
+        <li>
+            <label></label>
+            <input class="form-control" type="text" placeholder="Readonly input here…" readonly>
+        </li>
+    </ul>
+    <input type="submit" value="Submit">
+    {% else %}
+        <ul>
+            <li>
+                <p>Ви ще не заказали їжу</p>
+            </li>
+            <li>
+                <p>Будь-ласка замовте</p>
+            </li>
+        </ul>
+    {% endfor %}
+    </form>
+{% endblock %}

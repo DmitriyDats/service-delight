@@ -1,0 +1,158 @@
+{% extends 'index.html' %}
+{% from "project_templates/_formhelpers.html" import render_field %}
+
+{% block body %}
+    <section class="institutions">
+        <div class="container">
+            <h2>Тіпа адмінка</h2>
+            <div style="height: 300px;">
+
+                <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active"><a href="#title_add" aria-controls="title_add" role="tab"
+                                                              data-toggle="tab"><h3>Назва закладу</h3></a></li>
+                    <li role="presentation"><a href="#menu" aria-controls="menu" role="tab" data-toggle="tab"><h3>
+                        Назва страви</h3></a>
+                    </li>
+                    <li role="presentation"><a href="#eat" aria-controls="eat" role="tab" data-toggle="tab"><h3>
+                        Страви</h3></a>
+                    </li>
+                </ul>
+
+
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="title_add">
+                        <form method="POST" action="{{ url_for('title_add') }}">
+                            <dl>
+                                {{ form1.csrf_token }}
+                                {{ render_field(form1.name) }}
+                            </dl>
+                            <input type="submit" value="Створити">
+                        </form>
+                        {% for message in get_flashed_messages() %}
+                            <div class="flash">{{ message }}</div>
+                        {% endfor %}
+                        <ul>
+                            {% for title in titles %}
+                                <li class="col-sm-12">
+                                    <ul style="margin-top: 20px;">
+                                        <li class="col-sm-1"
+                                            onclick="return confirm('Are you sure you want to delete this item?');"><a
+                                                href="{{ url_for('delete', id=title.id) }}"
+                                                style="margin-bottom: 20px;"><i class="fa fa-trash-o"
+                                                                           aria-hidden="true"></i></a>
+                                        </li>
+                                        <li class="col-sm-1">
+                                            <a href="{{ url_for('edit', id=title.id) }}" style="margin-bottom: 20px;"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>                          
+                                        </li>
+                                        <li class="col-sm-2">
+                                            <h3 class="product-title">{{ title.name }}</h3>
+                                        </li>
+                                    </ul>
+                                </li>
+                            {% else %}
+                                <li>
+                                    <em>Unbelievable. No entries here so far</em>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="menu">
+                        <form method="POST" action="{{ url_for('dish_add') }}">
+                            <dl>
+                                {{ form2.csrf_token }}
+                                {{ render_field(form2.name) }}
+                            </dl>
+                            <input type="submit" value="Створити">
+                        </form>
+                        {% for message in get_flashed_messages() %}
+                            <div class="flash">{{ message }}</div>
+                        {% endfor %}
+                        <ul>
+                            {% for dish in dishes %}
+                                <li class="col-sm-12">
+                                    <ul style="margin-top: 20px;">
+                                        <li class="col-sm-1"
+                                            onclick="return confirm('Are you sure you want to delete this item?');"><a
+                                                href="{{ url_for('delete_dish', id=dish.id) }}"
+                                                style="margin-bottom: 20px;"><i class="fa fa-trash-o"
+                                                                           aria-hidden="true"></i></a>
+                                        </li>
+                                        <li class="col-sm-1">
+                                            <a href="" style="margin-bottom: 20px;"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> 
+                                        </li>
+                                        <li class="col-sm-2">
+                                            <h3 class="product-title">{{ dish.name }}</h3>
+                                        </li>
+                                    </ul>
+                                </li>
+                                
+                            {% else %}
+                                <li>
+                                    <em>Unbelievable. No entries here so far</em>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+
+                    <div role="tabpanel" class="tab-pane" id="eat">
+                        <form method="POST" action="{{ url_for('price_add') }}">
+                            <select name="dish" class="form-control" style="width: 20%; margin: 0 auto;">
+                                {% for dish in dishes %}
+                                    <option value="{{ dish.id }}">{{ dish.name }}</option>
+                                {% endfor %}
+                            </select>
+                            <dl>
+                                {{ form.csrf_token }}
+                                {{ render_field(form.path) }}
+                                {{ render_field(form.price_name) }}
+                                {{ render_field(form.the_weight) }}
+                            </dl>
+                            <input type="submit" value="Створити">
+                        </form>
+                        {% for message in get_flashed_messages() %}
+                            <div class="flash">{{ message }}</div>
+                        {% endfor %}
+                        <div class="col-sm-12 main">
+                            <div class="tab-content">
+                                <div role="tabpanel" class="tab-pane active" id="list-four">
+                                    <ul class="price-burger">
+                                        {% for price in prices %}
+                                            <li class="col-sm-12">
+                                                <ul class="list-product" style="margin-top: 20px;">
+                                                    <li class="col-sm-1"
+                                                        onclick="return confirm('Are you sure you want to delete this item?');" style="margin-bottom: 20px;">
+                                                        <a href="{{ url_for('delete_price', id=price.id) }}"
+                                                                style="color: #101010;"><i class="fa fa-trash-o"
+                                                                                           aria-hidden="true"></i></a>
+                                                    </li>
+                                                    <li class="col-sm-1">
+                                                        <a href=""
+                                                           style="color: #101010;"><i class="fa fa-pencil-square-o"
+                                                                                      aria-hidden="true"></i></a>
+                                                    </li>
+                                                    <li class="col-sm-4">
+                                                        <h3 class="product-title">{{ price.path }}</h3>
+                                                    </li>
+                                                    <li class="col-sm-2">
+                                                        <span class="product-the-weight">{{ price.the_weight }}</span>
+                                                    </li>
+                                                    <li class="col-sm-2">
+                                                        <span class="product-price">{{ price.price_name|safe }}</span>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        {% else %}
+                                            <li>
+                                                <em>Unbelievable. No entries here so far</em>
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

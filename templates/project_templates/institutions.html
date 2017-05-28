@@ -1,0 +1,15 @@
+{% extends 'index.html' %}
+
+{% block body %}
+    <ul class="menu-institution">
+        {% for head in headers %}
+            <li class="col-sm-4">
+                <a href="{{ url_for('list_product', id=head.id) }}">
+                    <img src="{{ url_for('static', filename='images/one.png') }}" alt="One"/>
+                </a>
+            </li>
+        {% else %}
+            <li><p>none</p></li>
+        {% endfor %}
+    </ul>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends 'index.html' %}
+
+{% block body %}
+    <section class="contacts">
+        <div class="container">
+            <h2>Контакти</h2>
+            <ul class="contacts-list">
+                <li class="col-sm-6">
+                    <span class="title-head-number"><i class="fa fa-mobile"
+                                                       aria-hidden="true"></i>Номери телефонів:</span>
+                    <ul class="number-contacts">
+                        <li>
+                            <p><i class="fa fa-check-square-o" aria-hidden="true"></i>(044) 502-49-49 (багатоканальний)
+                            </p>
+                        </li>
+                        <li>
+                            <p><i class="fa fa-check-square-o" aria-hidden="true"></i>050 502-49-49</p>
+                        </li>
+                        <li>
+                            <p><i class="fa fa-check-square-o" aria-hidden="true"></i>067 502-49-49</p>
+                        </li>
+                        <li>
+                            <p><i class="fa fa-check-square-o" aria-hidden="true"></i>093 502-49-49</p>
+                        </li>
+
+                    </ul>
+                </li>
+                <li class="col-sm-6">
+                    <span class="title-head-email"><i class="fa fa-envelope"
+                                                      aria-hidden="true"></i>Електронна пошта:</span>
+                    <ul class="email-contacts">
+                        <li>
+                            <p><i class="fa fa-check-square-o" aria-hidden="true"></i><a href="mailto:ask111@gmail.com">ask111@gmail.com</a>
+                            </p>
+                        </li>
+                        <li>
+                            <p><i class="fa fa-check-square-o" aria-hidden="true"></i><a href="mailto:ask222@gmail.com">ask222@gmail.com</a>
+                            </p>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="map">
+            <script type="text/javascript" charset="utf-8" async
+                    src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Acd833e80499f72630b75be86c473702db1c6aad132fa57a798ffc54f74d08da0&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>
+        </div>
+    </section>
+{% endblock %}
